@@ -31,6 +31,17 @@
   function draw (e){
     if (!isDrawing) return; //讓function在點擊時才觸發
     console.log(e);
+
+    ctx.beginPath();
+    //從這裡出發
+    ctx.moveTo(lastX, lastY);
+    //直到到這裡結束
+    ctx.lineTo(e.offsetX, e.offsetY);
+    ctx.stroke(); 
+
+    // lastX = e.offsetX;
+    // lastY = e.offsetY;
+    [lastX, lastY] = [e.offsetX, e.offsetY];
   }
 
   canvas.addEventListener('mousemove', draw);
